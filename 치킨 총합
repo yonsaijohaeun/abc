@@ -1,0 +1,46 @@
+package Ch09;
+import java.util.ArrayList;
+class OrderItem{
+	
+	private String kind;
+	private int price;
+	private int mari;
+	
+	public OrderItem(String kind, int price, int mari) {
+		this.kind = kind;
+		this.price = price;
+		this.mari = mari;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+	
+	public int getMari() {
+		return mari;
+	}
+	
+	void show () {
+		System.out.println(kind+"("+price+")"+" x "+mari+"마리");
+	}
+	
+}
+public class Ex3 {
+	public static void main(String[] args) {
+		ArrayList<OrderItem> order = new ArrayList<OrderItem>();
+		order.add(new OrderItem("후라이드 치킨",9900,3));
+		order.add(new OrderItem("양념 치킨",10900,2));
+		order.add(new OrderItem("간장 치킨",11900,2));
+		
+		int sum = 0;
+		for(int i=0; i<order.size(); i++) {
+		OrderItem ori = order.get(i);
+		ori.show();
+		sum += ori.getPrice()*ori.getMari();
+		
+		}
+	
+		System.out.println("===========");
+		System.out.println("총합: "+sum+"원");
+	}
+}
